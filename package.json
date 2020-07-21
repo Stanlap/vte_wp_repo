@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "private": "true",
-  "scripts": {
-    "buildDev": "webpack --mode development --config ./build/webpack.server.config.js && webpack --config ./build/webpack.dev.config.js",
-    "buildProd": "webpack --mode production --config ./build/webpack.server.config.js && webpack --config ./build/webpack.prod.config.js && node ./dist/back_js/chat.js",
-    "start": "node ./serv/server.js"
+  "scripts": { 
+    "prod": "webpack --mode production --config ./build/webpack.server.config.js && webpack --config ./build/webpack.prod.config.js && node ./dist/back_js/chat.js",
+    "serv": "node ./serv/server.js"
   },
   "keywords": [],
   "author": "",

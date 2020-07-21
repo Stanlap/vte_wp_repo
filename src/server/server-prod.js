@@ -7,8 +7,7 @@ const passport = require('passport');
 // const countRF = require('./public/vte_brain');
 const app = express(),
             // DIST_DIR = __dirname,
-            DIST_DIR = path.resolve(__dirname, '../dist'),
-            HTML_FILE = path.join(DIST_DIR, 'main.html')
+            DIST_DIR = path.resolve(__dirname, '../dist')
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -40,10 +39,10 @@ app.use(passport.session());
 
 
 app.get('/', (req, res) => {
-    res.sendFile(HTML_FILE)
+    res.sendFile(`${DIST_DIR}/main_auth.html`)
 })
 app.get('/aboutUs', (req, res) => {
-    res.sendFile(`${DIST_DIR}/aboutUs.html`)
+    res.sendFile(`${DIST_DIR}/about_us.html`)
 })
 app.get('/login', (req, res) => {
     res.sendFile(`${DIST_DIR}/login.html`)

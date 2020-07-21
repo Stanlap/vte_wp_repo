@@ -1,96 +1,22 @@
-
-
-
 const PATHS = require('./globals');
-
-const webpack = require('webpack')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
-const {
-  CleanWebpackPlugin
-} = require('clean-webpack-plugin')
 module.exports = {
-
-  externals: {
-    paths: PATHS
+  entry: {
+    main: `${PATHS.pre_js}/main.js`,
+    login: `${PATHS.pre_js}/login.js`,
+    chat: `${PATHS.pre_js}/chat_2.js`,
+    regist: `${PATHS.pre_js}/regist.js`,
   },
   output: {
     path: `${PATHS.dist}/`,
     publicPath: '/',
     filename: '[name].[contenthash].js'
   },
-  target: 'web',
-  devtool: 'source-map',
-
   module: {
-    rules: [{
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: '/node_modules/'
-      },
-      {
-        test: /\.ejs$/,
-        use: {
-          loader: 'ejs-templates-loader',
-          options: {
-            beautify: true
-          }
-        }
-      },
-      {
-        test: /\.(gif|png|jpe?g|svg)$/i,
-        use: [
-          'file-loader',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65
-              },
-              // optipng.enabled: false will disable optipng
-              optipng: {
-                enabled: false,
-              },
-              pngquant: {
-                quality: [0.65, 0.90],
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              // the webp option will enable WEBP
-              webp: {
-                quality: 75
-              }
-            }
-          },
-        ],
-      },
-      {
-        test: /\.css$/,
-        use:[MiniCssExtractPlugin.loader, 'css-loader']
-      }
-      // {
-      //   test: /\.css$/,
-      //   use:['style-loader', 'css-loader']
-      // }
-    ]
+    rules: []
   },
-
-
   plugins: [
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      jquery: 'jquery',
-      Popper: ['popper.js', 'default']
-    }),
-    new MiniCssExtractPlugin({
-      filename: `${PATHS.assets}css/[name].[contenthash].css`,
-    }),
-    new CleanWebpackPlugin(),
     new CopyWebpackPlugin({
       patterns: [{
           from: 'favicon.ico',
@@ -103,32 +29,50 @@ module.exports = {
         },
       ]
     }),
-
     new HtmlWebpackPlugin({
-      filename: 'main.html',
-      template: './src/html/main.ejs',
+      filename: 'about_us.html',
+      template: `${PATHS.pre}/about_us.ejs`,
       chunks: ['main']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'aboutUs.html',
-      template: './src/html/aboutUs.ejs',
-      chunks: ['main']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'login.html',
-      template: './src/html/login.ejs',
-      chunks: ['main','login']
     }),
     new HtmlWebpackPlugin({
       filename: 'chat.html',
-      template: './src/html/chat.ejs',
-      chunks: ['main','chat']
+      template: `${PATHS.pre}/chat.ejs`,
+      chunks: ['main', 'chat']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'login.html',
+      template: `${PATHS.pre}/login.ejs`,
+      chunks: ['main', 'login']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'main.html',
+      template: `${PATHS.pre}/main.ejs`,
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'main_auth.html',
+      template: `${PATHS.pre}/main_auth.ejs`,
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'profile.html',
+      template: `${PATHS.pre}/profile.ejs`,
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'prog_list.html',
+      template: `${PATHS.pre}/prog_list.ejs`,
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'programs.html',
+      template: `${PATHS.pre}/programs.ejs`,
+      chunks: ['main']
     }),
     new HtmlWebpackPlugin({
       filename: 'regist.html',
-      template: './src/html/regist.ejs',
-      chunks: ['main','regist']
+      template: `${PATHS.pre}/regist.ejs`,
+      chunks: ['main', 'regist']
     }),
   ]
-
 }
