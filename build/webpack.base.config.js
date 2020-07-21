@@ -1,11 +1,12 @@
-const PATHS = require('./globals');
+const PATHS = require('./globals')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: {
-    main: `${PATHS.pre_js}/main.js`,
-    login: `${PATHS.pre_js}/login.js`,
     chat: `${PATHS.pre_js}/chat_2.js`,
+    login: `${PATHS.pre_js}/login.js`,
+    main: `${PATHS.pre_js}/main.js`,
+    profile: `${PATHS.pre_js}/profile.js`,
     regist: `${PATHS.pre_js}/regist.js`,
   },
   output: {
@@ -57,16 +58,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'profile.html',
       template: `${PATHS.pre}/profile.ejs`,
-      chunks: ['main']
+      chunks: ['main', 'profile']
     }),
     new HtmlWebpackPlugin({
       filename: 'prog_list.html',
       template: `${PATHS.pre}/prog_list.ejs`,
-      chunks: ['main']
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'programs.html',
-      template: `${PATHS.pre}/programs.ejs`,
       chunks: ['main']
     }),
     new HtmlWebpackPlugin({

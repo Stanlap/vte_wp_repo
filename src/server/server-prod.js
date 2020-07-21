@@ -8,6 +8,8 @@ const passport = require('passport');
 const app = express(),
             // DIST_DIR = __dirname,
             DIST_DIR = path.resolve(__dirname, '../dist')
+// const PATHS = require('globals')
+
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -37,18 +39,26 @@ app.use(passport.session());
 
 
 
-
-app.get('/', (req, res) => {
-    res.sendFile(`${DIST_DIR}/main_auth.html`)
-})
-app.get('/aboutUs', (req, res) => {
+app.get('/about_us', (req, res) => {
     res.sendFile(`${DIST_DIR}/about_us.html`)
+})
+app.get('/chat', (req, res) => {
+    res.sendFile(`${DIST_DIR}/chat.html`)
 })
 app.get('/login', (req, res) => {
     res.sendFile(`${DIST_DIR}/login.html`)
 })
-app.get('/chat', (req, res) => {
-    res.sendFile(`${DIST_DIR}/chat.html`)
+// app.get('/', (req, res) => {
+//     res.sendFile(`${DIST_DIR}/main_auth.html`)
+// })
+app.get('/', (req, res) => {
+    res.sendFile(`${DIST_DIR}/main_auth.html`)
+})
+app.get('/profile', (req, res) => {
+    res.sendFile(`${DIST_DIR}/profile.html`)
+})
+app.get('/prog_list', (req, res) => {
+    res.sendFile(`${DIST_DIR}/prog_list.html`)
 })
 app.get('/regist', (req, res) => {
     res.sendFile(`${DIST_DIR}/regist.html`)
