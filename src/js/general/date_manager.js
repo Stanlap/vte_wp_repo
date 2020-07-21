@@ -1,3 +1,4 @@
+console.log('date_manager has attached')
 function formatDate() {
     let d = new Date(),
         month = '' + (d.getMonth() + 1),

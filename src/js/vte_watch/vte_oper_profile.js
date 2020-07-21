@@ -1,7 +1,6 @@
-'use strict';
-// let oPat = JSON.parse(localStorage.getItem('Patient'));
+$( document ).ready(function() {// let oPat = JSON.parse(localStorage.getItem('Patient'));
 // localStorage.removeItem('Patient')
-// console.log(oPat);
+console.log('vte_oper_profile has attached');
 
 let aPat = [], aStepBack= [];
 aPat = JSON.parse(localStorage.getItem('Patient'));
@@ -171,3 +170,4 @@ $(location).attr('href', '/vte_patient_list_rf');
 }
 
 $('#btnOne').on('click', goToRF);
+});
