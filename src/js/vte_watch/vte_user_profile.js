@@ -1,3 +1,4 @@
+console.log('vte_user_profile has attached')
 let oUser = {
     name: '', 
     surname: '', 

@@ -54,14 +54,26 @@ app.get('/login', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(`${DIST_DIR}/main_auth.html`)
 })
-app.get('/profile', (req, res) => {
-    res.sendFile(`${DIST_DIR}/profile.html`)
+app.get('/vte_user_profile', (req, res) => {
+    res.sendFile(`${DIST_DIR}/vte_watch/vte_user_profile.html`)
 })
 app.get('/prog_list', (req, res) => {
     res.sendFile(`${DIST_DIR}/prog_list.html`)
 })
 app.get('/regist', (req, res) => {
     res.sendFile(`${DIST_DIR}/regist.html`)
+})
+app.get('/vte_patient_profile', (req, res) => {
+    res.sendFile(`${DIST_DIR}/vte_watch/vte_patient_profile.html`)
+})
+app.get('/vte_reference', (req, res) => {
+    res.sendFile(`${DIST_DIR}/vte_watch/vte_reference.html`)
+})
+app.get('/vte_outer_ref', (req, res) => {
+    res.sendFile(`${DIST_DIR}/vte_watch/vte_outer_ref.html`)
+})
+app.get('/vte_scales', (req, res) => {
+    res.sendFile(`${DIST_DIR}/vte_watch/vte_scales.html`)
 })
 
 app.post('/login', (req, res, next) => {
