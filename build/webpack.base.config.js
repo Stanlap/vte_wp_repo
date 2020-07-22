@@ -14,6 +14,10 @@ module.exports = {
     vte_obst_profile: `${PATHS.pre_js}/vte_watch/vte_obst_profile.js`,
     vte_oper_profile: `${PATHS.pre_js}/vte_watch/vte_oper_profile.js`,
     vte_patient_list_rf: `${PATHS.pre_js}/vte_watch/vte_patient_list_rf.js`,
+    vte_mirror_rf: `${PATHS.pre_js}/vte_watch/vte_mirror_rf.js`,
+    vte_concl: `${PATHS.pre_js}/vte_watch/vte_concl.js`,
+    modal_alert: `${PATHS.pre_js}/general/modal_alert.js`,
+    gfr: `${PATHS.pre_js}/general/gfr.js`,
 
   },
   output: {
@@ -113,6 +117,16 @@ module.exports = {
       filename: `${PATHS.dist}/vte_watch/vte_oper_profile.html`,
       template: `${PATHS.pre}/vte_watch/vte_oper_profile.ejs`,
       chunks: ['main','date_manager', 'vte_oper_profile'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: `${PATHS.dist}/vte_watch/vte_patient_list_rf.html`,
+      template: `${PATHS.pre}/vte_watch/vte_patient_list_rf.ejs`,
+      chunks: ['main','gfr', 'vte_mirror_rf', 'vte_patient_list_rf'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: `${PATHS.dist}/vte_watch/vte_concl.html`,
+      template: `${PATHS.pre}/vte_watch/vte_concl.ejs`,
+      chunks: ['main','gfr', 'alert_modal', 'vte_concl'],
     }),
   ]
 }
