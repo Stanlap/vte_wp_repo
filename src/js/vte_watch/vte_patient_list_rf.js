@@ -1,3 +1,7 @@
+import {creatMirrorRF} from './vte_mirror_rf'
+import {calcCCAndGFR} from '../general/gfr'
+
+console.log('vte_patient_list_rf has attached')
 let aPat = [], aStepBack= [];
 aPat = JSON.parse(localStorage.getItem('Patient'));
 aStepBack = JSON.parse(localStorage.getItem('StepBack'));

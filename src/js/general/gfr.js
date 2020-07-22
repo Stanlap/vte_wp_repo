@@ -1,4 +1,5 @@
-function calcCCAndGFR(gender, age, weight, race, creatinVal, crUns) {
+console.log('gfr has attached')
+export function calcCCAndGFR(gender, age, weight, race, creatinVal, crUns) {
     function uniformCrValue(cU, vC) {
         cU === 'мкг/мл, мг/100 мл' ? vC = 10 : cU === 'ммоль/л' ? vC = 0.0884 : cU === 'мкмоль/л' ? vC = 88.4 : vC = 1;
         return vC;

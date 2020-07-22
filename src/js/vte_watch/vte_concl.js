@@ -1,3 +1,4 @@
+console.log('vte_concl has attached')
 let aPat = [], aStepBack= [];
 aPat = JSON.parse(localStorage.getItem('Patient'));
 aStepBack = JSON.parse(localStorage.getItem('StepBack'));

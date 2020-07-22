@@ -26,15 +26,32 @@ oPat.pkInvasions ? $('#txtInvasions').focus() : $('#txtInvasions').hide();
 
 let vIsShow = false;
 
-// const addDatePicker = (vDate, ind) => `<input class="form-control" type="date" value= "${vDate}" id="inpDate_${ind}">`;
 
 const createCard = (title, ind, content) => {
     $('#accListOp').append(`<div class="card"><div class="card-header" id="divCHeader_${ind}"><h5 class="mb-0"><button class="btn btn-block" type="button" data-toggle="collapse" data-target="#collapse_${ind}" aria-controls="collapse_${ind}">${title}</button></h5></div>
     <div id="collapse_${ind}" class="collapse ${vIsShow ? '': 'show'}" aria-labelledby="divCHeader_${ind}" data-parent="#accListOp"><div class="card-body"><ul class="list-group list-group-flush">${content}</ul></div></div></div>`);
     vIsShow = true;
 }
+
+function addDays(date, days) {
+    let result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+}
+function correctDate(vD) {
+    return `${vD.getFullYear()}-${('0' + (vD.getMonth() + 1)).slice(-2)}-${('0' + vD.getDate()).slice(-2)}`;
+}
+
+const addDatePicker = (vDate, ind) => `<input class="form-control" type="date" value= "${vDate}" id="inpDate_${ind}">`;
+
+console.log(new Date())
+console.log(addDays(new Date(), 1))
+console.log(addDays(correctDate(new Date()), 1))
+console.log(correctDate(addDays(correctDate(new Date()), 1)))
+console.log(correctDate(addDays(new Date(), 1)))
+
 // addDatePicker(correctDate(addDays(new Date(), 1)), 1)
-$(`${addDatePicker(formatDate(), 1)}`).appendTo('#divForDate_1');
+$(`${addDatePicker(correctDate(new Date()), 1)}`).appendTo('#divForDate_1');
 
 $('#lblTimeOfSurg').hide();
 $('span.comments').hide();
@@ -86,7 +103,7 @@ $('#btnChooseOp').on('click', () => {
 });
 $('#btnOperTomorrow').on('click', () => {
     $('#divForDate_1').empty();
-    $(`${addDatePicker(correctDate(addDays(new Date(), 1)), 1)}`).appendTo('#divForDate_1');
+    $(`${addDatePicker(correctDate(addDays(new Date(), 1)))}`).appendTo('#divForDate_1');
 });
 
 $('span.preComments').on('click', function () {
@@ -96,12 +113,14 @@ $('span.comments').on('click', function () {
     $(this).hide().prev().show();
 });
 
+console.log('inpDate_1  ' + $('#inpDate_1').val());
+
 $('#selKindOfAnesth').on('input', () => {
     +$('#selKindOfAnesth option:selected').val() === 3 ? ($(`<br><span>Дата установки катетера</span>${addDatePicker($('#inpDate_1').val(), 2)}`).appendTo('#divForDate_2'), $(`<span>Дата удаления катетера</span>${addDatePicker($('#inpDate_1').val(), 3)}`).appendTo('#divForDate_2')) : $('#divForDate_2').empty();
 });
 
 $('#txtInvasions').on('input', function () {
-    let vTD = oPat.pkIsOrNoSurg ? $('#inpDate_1').val() : formatDate();
+    let vTD = oPat.pkIsOrNoSurg ? $('#inpDate_1').val() : correctDate(new Date());
     $(this).prop('value') ? ($(`<span>Дата установки катетера или начала процедуры</span>${addDatePicker(vTD, 4)}`).appendTo('#divForDate_3'),
         $(`<span>Дата удаления катетера или окончания процедуры</span>${addDatePicker(vTD, 5)}`).appendTo('#divForDate_3')) : $('#divForDate_3').empty();
 });

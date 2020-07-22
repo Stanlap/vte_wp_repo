@@ -81,6 +81,12 @@ app.get('/vte_obst_profile', (req, res) => {
 app.get('/vte_oper_profile', (req, res) => {
     res.sendFile(`${DIST_DIR}/vte_watch/vte_oper_profile.html`)
 })
+app.get('/vte_patient_list_rf', (req, res) => {
+    res.sendFile(`${DIST_DIR}/vte_watch/vte_patient_list_rf.html`)
+})
+app.get('/vte_concl', (req, res) => {
+    res.sendFile(`${DIST_DIR}/vte_watch/vte_concl.html`)
+})
 
 app.post('/login', (req, res, next) => {
     passport.authenticate('local', function (err, user) {

@@ -1,4 +1,5 @@
-function creatMirrorRF() {
+console.log('vte_mirror_rf has attached')
+export function creatMirrorRF() {
     let vIsShow = false,
         vCardCounter = 0,
         aLi = [];
