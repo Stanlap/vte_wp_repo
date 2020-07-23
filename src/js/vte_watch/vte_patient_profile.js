@@ -1,5 +1,6 @@
 'use strict';
 console.log('vte_patient_profile has attached')
+
 localStorage.removeItem('Patient');
 
 let aPat = [],

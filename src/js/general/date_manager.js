@@ -11,13 +11,13 @@ function formatDate() {
     return vDateNow;
 }
 
-function addDays(date, days) {
+export function addDays(date, days) {
     let result = new Date(date);
     result.setDate(result.getDate() + days);
     return result;
 }
 
-function correctDate(vD) {
+export function correctDate(vD) {
     return `${vD.getFullYear()}-${('0' + (vD.getMonth() + 1)).slice(-2)}-${('0' + vD.getDate()).slice(-2)}`;
 }
 
@@ -54,4 +54,4 @@ const convertDateToRuFormat = (date) => {
     return getZero(vD.getDate()) + '.' + getZero(vD.getMonth() + 1) + '.' + vD.getFullYear()
 }
 
-const addDatePicker = (vDate, ind) => `<input class="form-control" type="date" value= "${vDate}" id="inpDate_${ind}">`;
+export const addDatePicker = (vDate, ind) => `<input class="form-control" type="date" value= "${vDate}" id="inpDate_${ind}">`;

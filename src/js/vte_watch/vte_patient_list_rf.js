@@ -202,6 +202,8 @@ function countRF() {
         let creatinVal = $('#inpCreatinineVal').val() ? $('#inpCreatinineVal').val() : 94,
             creatinUnits = $('#slctCrUnitsGroup').val(),
             vRace = ($('#chkRaceB').is(':checked')) ? 1 : 0;
+            console.log(oPat.pkGender, oPat.pkAge, oPat.pkWeight, vRace, creatinVal, creatinUnits);
+
         oPat.pkCC = calcCCAndGFR(oPat.pkGender, oPat.pkAge, oPat.pkWeight, vRace, creatinVal, creatinUnits)[0];
         oPat.pkGFR = calcCCAndGFR(oPat.pkGender, oPat.pkAge, oPat.pkWeight, vRace, creatinVal, creatinUnits)[1];
     } else {

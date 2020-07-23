@@ -1,4 +1,5 @@
-$( document ).ready(function() {// let oPat = JSON.parse(localStorage.getItem('Patient'));
+$( document ).ready(function() {
+    // let oPat = JSON.parse(localStorage.getItem('Patient'));
 // localStorage.removeItem('Patient')
 console.log('vte_oper_profile has attached');
 
@@ -32,7 +33,6 @@ const createCard = (title, ind, content) => {
     <div id="collapse_${ind}" class="collapse ${vIsShow ? '': 'show'}" aria-labelledby="divCHeader_${ind}" data-parent="#accListOp"><div class="card-body"><ul class="list-group list-group-flush">${content}</ul></div></div></div>`);
     vIsShow = true;
 }
-
 function addDays(date, days) {
     let result = new Date(date);
     result.setDate(result.getDate() + days);
@@ -44,13 +44,7 @@ function correctDate(vD) {
 
 const addDatePicker = (vDate, ind) => `<input class="form-control" type="date" value= "${vDate}" id="inpDate_${ind}">`;
 
-console.log(new Date())
-console.log(addDays(new Date(), 1))
-console.log(addDays(correctDate(new Date()), 1))
-console.log(correctDate(addDays(correctDate(new Date()), 1)))
-console.log(correctDate(addDays(new Date(), 1)))
 
-// addDatePicker(correctDate(addDays(new Date(), 1)), 1)
 $(`${addDatePicker(correctDate(new Date()), 1)}`).appendTo('#divForDate_1');
 
 $('#lblTimeOfSurg').hide();

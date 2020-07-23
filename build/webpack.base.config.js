@@ -82,8 +82,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: `${PATHS.dist}/vte_watch/vte_patient_profile.html`,
       template: `${PATHS.pre}/vte_watch/vte_patient_profile.ejs`,
-    date_manager: `${PATHS.pre_js}general/date_manager.js`,
-      chunks: ['main', 'date_manager', 'vte_patient_profile']
+      chunks: ['main', 'vte_patient_profile']
     }),
     new HtmlWebpackPlugin({
       filename: `${PATHS.dist}/vte_watch/vte_user_profile.html`,
@@ -111,17 +110,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: `${PATHS.dist}/vte_watch/vte_obst_profile.html`,
       template: `${PATHS.pre}/vte_watch/vte_obst_profile.ejs`,
-      chunks: ['main','date_manager', 'vte_obst_profile'],
+      chunks: ['main', 'vte_obst_profile'],
     }),
     new HtmlWebpackPlugin({
       filename: `${PATHS.dist}/vte_watch/vte_oper_profile.html`,
       template: `${PATHS.pre}/vte_watch/vte_oper_profile.ejs`,
-      chunks: ['main','date_manager', 'vte_oper_profile'],
+      chunks: ['main', 'vte_oper_profile'],
     }),
     new HtmlWebpackPlugin({
       filename: `${PATHS.dist}/vte_watch/vte_patient_list_rf.html`,
       template: `${PATHS.pre}/vte_watch/vte_patient_list_rf.ejs`,
-      chunks: ['main','gfr', 'vte_mirror_rf', 'vte_patient_list_rf'],
+      chunks: ['main','gfr', 'vte_patient_list_rf'],
     }),
     new HtmlWebpackPlugin({
       filename: `${PATHS.dist}/vte_watch/vte_concl.html`,
